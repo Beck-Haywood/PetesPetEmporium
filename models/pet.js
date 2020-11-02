@@ -15,6 +15,7 @@ const PetSchema = new Schema({
   , picUrlSq        : { type: String }
   , favoriteFood    : { type: String }
   , description     : { type: String }
+  , price: {type: Number, required: true }
 },
 {
   timestamps: true

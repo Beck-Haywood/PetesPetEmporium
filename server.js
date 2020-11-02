@@ -16,6 +16,8 @@ const app = express();
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/petes-pets');
 
+//Set public Stripe API key
+app.locals.PUBLIC_STRIPE_API_KEY = process.env.PUBLIC_STRIPE_API_KEY
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

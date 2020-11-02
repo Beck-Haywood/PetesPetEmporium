@@ -5,7 +5,7 @@ module.exports = [
         "birthday": "20017-11-11",
         "favoriteFood": "Chicken",
         "picUrl": "http://www.dogbreedslist.info/uploads/allimg/dog-pictures/Rottweiler-3.jpg",
-        "price": 9.99,
+        "price": 10,
         "picUrlSq": "http://www.dogbreedplus.com/dog_breeds/images/cute-rottweiler-puppy.jpg",
         "description": "Rex is a dog and he's a good dog who loves to play and hang out with his owners. He also likes to nap and enjoys eating dog food"
     },
@@ -15,7 +15,7 @@ module.exports = [
         "birthday": "2008-11-11",
         "favoriteFood": "Liver",
         "picUrl": "http://www.gpamass.com/s/img/emotionheader713297504.jpg",
-        "price": 9.99,
+        "price": 11,
         "picUrlSq": "https://www.collinsdictionary.com/images/thumb/greyhound_21701074_250.jpg",
         "description": "Fido is a dog and he's a good dog who loves to play and hang out with his owners. He also likes to nap and enjoys eating dog food"
     },
