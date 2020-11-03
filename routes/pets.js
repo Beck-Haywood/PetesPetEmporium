@@ -1,9 +1,11 @@
 // MODELS
 const Pet = require('../models/pet');
 
+const mailer = require('../utils/mailer');
+
 // PET ROUTES
 module.exports = (app) => {
-  // Buy Pet
+  // PURCHASE
   app.post('/pets/:id/purchase', (req, res) => {
     console.log(req.body);
     // Set your secret key: remember to change this to your live secret key in production
@@ -18,8 +20,8 @@ module.exports = (app) => {
     // this way we'll insure we use a non-null value
     let petId = req.body.petId || req.params.id;
 
-    Pet.findById(petId).exec((err, pet)=> {
-      if (err) {
+    Pet.findById(petId).exec((err, pet) => {
+      if(err) {
         console.log('Error: ' + err);
         res.redirect(`/pets/${req.params.id}`);
       }
@@ -29,10 +31,17 @@ module.exports = (app) => {
         description: `Purchased ${pet.name}, ${pet.species}`,
         source: token,
       }).then((chg) => {
-        res.redirect(`/pets/${req.params.id}`);
+      // Convert the amount back to dollars for ease in displaying in the template
+        const user = {
+          email: req.body.stripeEmail,
+          amount: chg.amount / 100,
+          petName: pet.name
+        };
+        // Call our mail handler to manage sending emails
+        mailer.sendMail(user, req, res);
       })
       .catch(err => {
-        console.log('Error:' + err);
+        console.log('Error: ' + err);
       });
     })
   });
