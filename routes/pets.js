@@ -112,7 +112,6 @@ module.exports = (app) => {
             pet.avatarUrl = url;
             pet.save();
           });
-
           res.send({ pet: pet });
         });
       } else {
